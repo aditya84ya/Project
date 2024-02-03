@@ -1,0 +1,88 @@
+<html>
+
+<head>
+    <title> Form Validation</title>
+    <style>
+        body {
+            background-color: rgb(31, 10, 43);
+        }
+
+        .container {
+            max-width: 400px;
+            margin: 50px auto;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: #afad2e;
+            color: rgb(10, 3, 6);
+        }
+
+        .container h1 {
+            text-align: center;
+        }
+
+        input[type="submit"] {
+            background-color: #4CAF50;
+            color: white;
+            padding: 10px 20px;
+            border: none;
+            border-radius: 3px;
+            cursor: pointer;
+        }
+        input[type="submit"]:hover {
+      background-color: #45a049;
+    }
+        #errmsg{
+            text-align: left;
+            font-weight: bold;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>Form Validation</h1>
+        <form name="myform" onsubmit="return validate()">
+            First Name:<input type="text" name="fname"><br><br>
+            Last Name:<input type="text" name="lname"><br><br>
+            Username:<input type="user" name="user"><br><br>
+            Password:<input type="password" name="password"><br><br>
+            Confirm Password:<input type="password" name="cpassword"><br><br>
+            <input type="submit" value="Register">
+        </form>
+
+        <p id="errmsg" style="color:red"></p>
+    </div>
+    <script type="text/javascript">
+        function validate() {
+            var fname = document.myform.fname.value;
+            var lname = document.myform.lname.value;
+            var user = document.myform.user.value;
+            var password = document.myform.password.value;
+            var cpassword = document.myform.cpassword.value;
+
+            if (fname == "" || lname == "" || user == "" || password == "" || cpassword == "") {
+                document.getElementById("errmsg").innerHTML = "All fields are mandatory.";
+                return false;
+            }
+            if (password.length < 6) {
+                document.getElementById("errmsg").innerHTML = "Password must be 6 characters long";
+                return false;
+            }
+            if (password != cpassword) {
+                document.getElementById("errmsg").innerHTML = "Password doesn't match";
+                return false;
+            }
+
+            return true;
+
+
+        }
+
+
+
+
+    </script>
+</body>
+
+</html>

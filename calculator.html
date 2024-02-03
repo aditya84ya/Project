@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Basic Calculator</title>
+    <style>
+        * {
+            padding: 0;
+            margin: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            margin: 50px;
+        }
+
+        #calculator-container {
+            display: inline-block;
+            text-align: left;
+            padding: 20px;
+            border: 1px solid #ccc;
+            border-radius: 8px;
+            background-color: #f9f9f9;
+        }
+
+        input {
+            width: 100px;
+            margin: 5px;
+            padding: 5px;
+            box-sizing: border-box;
+        }
+
+        input[type="button"] {
+            width: 120px;
+        }
+
+        #result {
+            width: 100px;
+            margin-top: 10px;
+        }
+
+        p {
+            margin: 20px;
+        }
+    </style>
+</head>
+<body>
+    <div id="calculator-container">
+        <form>
+            A: <input type="text" id="firstNumber" /><br>
+            B: <input type="text" id="secondNumber" /><br>
+
+            <input type="button" onClick="additionBy()" value="+" />
+            <input type="button" onClick="subtractionBy()" value="-" />
+            <input type="button" onClick="multiplyBy()" value="*" />
+            <input type="button" onClick="divideBy()" value="/" />
+        </form>
+
+        <p>The Result is : <br>
+            <input id="result" readonly></input>
+        </p>
+    </div>
+
+    <script>
+        function additionBy() {
+            var num1 = document.getElementById("firstNumber").value;
+            var num2 = document.getElementById("secondNumber").value;
+            document.getElementById("result").value = Number(num1) + Number(num2);
+        }
+
+        function subtractionBy() {
+            var num1 = document.getElementById("firstNumber").value;
+            var num2 = document.getElementById("secondNumber").value;
+            document.getElementById("result").value = num1 - num2;
+        }
+
+        function multiplyBy() {
+            var num1 = document.getElementById("firstNumber").value;
+            var num2 = document.getElementById("secondNumber").value;
+            document.getElementById("result").value = num1 * num2;
+        }
+
+        function divideBy() {
+            var num1 = document.getElementById("firstNumber").value;
+            var num2 = document.getElementById("secondNumber").value;
+            document.getElementById("result").value = num1 / num2;
+        } 
+    </script>
+</body>
+</html>
